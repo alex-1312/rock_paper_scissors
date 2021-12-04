@@ -18,11 +18,11 @@ function computerPlay(){
 // lets play a single round rps
 function playRound( playerSelection, computerSelection){
   let ps = playerSelection;
+  ps = '';
   let cs = computerSelection;
+  let err = 'Oops. Something went wrong!'; 
   
   ps = ps.toLowerCase();
-
-  // TODO:  paper and scissors
   
   // if playerSelection is rock
   if ( ps == 'rock' && cs == 'rock' ) {
@@ -31,6 +31,8 @@ function playRound( playerSelection, computerSelection){
     return 'You lose! Paper beats Rock.';
   } else if ( ps == 'rock' && cs == 'scissor' ) {
     return 'You won! Rock beats Scissor.';
+  } else {
+    return err;
   }
 
   // if playerSelection is paper
@@ -40,6 +42,8 @@ function playRound( playerSelection, computerSelection){
     return 'It\'s a draw! Paper vs Paper.';
   } else if ( ps == 'paper' && cs == 'scissor' ) {
     return 'You lose! Scissor beats Paper.';
+  } else {
+    return err;
   }
 
   // if playerSelection is scissor
@@ -49,8 +53,19 @@ function playRound( playerSelection, computerSelection){
     return 'You won! Scissor beats Paper.';
   } else if ( ps == 'scissor' && cs == 'scissor' ) {
     return 'It\'s a draw! Scissor vs Scissor.';
+  } else {
+    return err;
   }
 }
+// play the game 5 times in a row
+function game ( ){  
+  for ( let i = 1; i <= 5; i++ ){
+    // console.log('Loop: ' + i);
+    let ps = prompt('Your Choise. Rock, Paper or Scissor');
+    let cs = computerPlay();
+    console.log('Loop ' + i + ': ' + playRound(ps, cs));
+  }
+} 
 
 
 // TESTING STUFF
@@ -58,7 +73,9 @@ function playRound( playerSelection, computerSelection){
 const playerSelection = 'rock';
 const computerSelection = computerPlay();
 
-console.log(playRound(playerSelection, computerSelection));
+game();
+
+// console.log(playRound(playerSelection, computerSelection));
 
 // console.log(computerPlay());
 // console.log('const playerSelection: ' + playerSelection);
