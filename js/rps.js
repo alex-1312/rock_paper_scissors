@@ -1,3 +1,12 @@
+// capitalize the first char 
+function capitalize( str ){
+  if ( typeof str === 'string' ) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  } else {
+    return '';
+  }
+}
+
 // function randomly returns rock, paper or scissors
 function computerPlay(){
   let x = Math.floor((Math.random() * 3) + 1);
@@ -18,43 +27,26 @@ function computerPlay(){
 // lets play a single round rps
 function playRound( playerSelection, computerSelection){
   let ps = playerSelection;
-  ps = '';
   let cs = computerSelection;
   let err = 'Oops. Something went wrong!'; 
-  
+
   ps = ps.toLowerCase();
+
+  // TODO: revise the entire if sections
   
   // if playerSelection is rock
-  if ( ps == 'rock' && cs == 'rock' ) {
-    return 'It\'s a draw! Rock vs Rock.';
-  } else if ( ps == 'rock' && cs == 'paper' ) {
-    return 'You lose! Paper beats Rock.';
-  } else if ( ps == 'rock' && cs == 'scissor' ) {
-    return 'You won! Rock beats Scissor.';
+  if ( ps == cs ) { 
+    return `It\'s a draw! ${capitalize(ps)} vs ${capitalize(cs)}.`; 
+  } else if ( ( ps == 'rock' && cs == 'paper' ) ||
+            ( ps == 'scissor' && cs == 'rock' ) ||
+            ( ps == 'paper' && cs == 'scissor' ) ) { 
+      return `You lose! ${capitalize(cs)} beats ${capitalize(ps)}.`; 
+  } else if ( ( ps == 'rock' && cs == 'scissor' )||
+              ( ps == 'scissor' && cs == 'paper' ) ||
+              ( ps == 'paper' && cs == 'rock' ) ) { 
+      return `You won! ${capitalize(ps)} beats ${capitalize(cs)}.`; 
   } else {
-    return err;
-  }
-
-  // if playerSelection is paper
-  if ( ps == 'paper' && cs == 'rock' ) {
-    return 'You won! Paper beats Rock.';
-  } else if ( ps == 'paper' && cs == 'paper' ) {
-    return 'It\'s a draw! Paper vs Paper.';
-  } else if ( ps == 'paper' && cs == 'scissor' ) {
-    return 'You lose! Scissor beats Paper.';
-  } else {
-    return err;
-  }
-
-  // if playerSelection is scissor
-  if ( ps == 'scissor' && cs == 'rock' ) {
-    return 'You lose! Rock beats Scissor.';
-  } else if ( ps == 'scissor' && cs == 'paper' ) {
-    return 'You won! Scissor beats Paper.';
-  } else if ( ps == 'scissor' && cs == 'scissor' ) {
-    return 'It\'s a draw! Scissor vs Scissor.';
-  } else {
-    return err;
+      return err;
   }
 }
 // play the game 5 times in a row
@@ -67,16 +59,7 @@ function game ( ){
   }
 } 
 
-
-// TESTING STUFF
-
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
-
 game();
 
-// console.log(playRound(playerSelection, computerSelection));
-
-// console.log(computerPlay());
-// console.log('const playerSelection: ' + playerSelection);
-// console.log('const computerSelection: ' + computerSelection);
+// TESTING STUFF
+// console.log(capitalize('hello'));
