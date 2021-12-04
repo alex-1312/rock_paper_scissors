@@ -24,7 +24,7 @@ function computerPlay(){
   }
   return result;
 }
-// lets play a single round rps
+
 function playRound( playerSelection, computerSelection){
   let ps = playerSelection;
   let cs = computerSelection;
@@ -32,9 +32,6 @@ function playRound( playerSelection, computerSelection){
 
   ps = ps.toLowerCase();
 
-  // TODO: revise the entire if sections
-  
-  // if playerSelection is rock
   if ( ps == cs ) { 
     return `It\'s a draw! ${capitalize(ps)} vs ${capitalize(cs)}.`; 
   } else if ( ( ps == 'rock' && cs == 'paper' ) ||
