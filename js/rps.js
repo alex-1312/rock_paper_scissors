@@ -4,13 +4,13 @@ function computerPlay(){
   let result = '';
   switch ( x ) {
     case 1:
-      result = 'Rock';
+      result = 'rock';
       break;
     case 2:
-      result = 'Paper';
+      result = 'paper';
       break;
     case 3:
-      result = 'Scissor';
+      result = 'scissor';
       break;
   }
   return result;
@@ -20,15 +20,35 @@ function playRound( playerSelection, computerSelection){
   let ps = playerSelection;
   let cs = computerSelection;
   
-  // TODO:  paper and scissors
-  //        catching user input
+  ps = ps.toLowerCase();
 
-  if ( ps == 'rock' && cs == 'Rock' ) {
+  // TODO:  paper and scissors
+  
+  // if playerSelection is rock
+  if ( ps == 'rock' && cs == 'rock' ) {
     return 'It\'s a draw! Rock vs Rock.';
-  } else if ( ps == 'rock' && cs == 'Paper' ) {
+  } else if ( ps == 'rock' && cs == 'paper' ) {
     return 'You lose! Paper beats Rock.';
-  } else if ( ps == 'rock' && cs == 'Scissor' ) {
+  } else if ( ps == 'rock' && cs == 'scissor' ) {
     return 'You won! Rock beats Scissor.';
+  }
+
+  // if playerSelection is paper
+  if ( ps == 'paper' && cs == 'rock' ) {
+    return 'You won! Paper beats Rock.';
+  } else if ( ps == 'paper' && cs == 'paper' ) {
+    return 'It\'s a draw! Paper vs Paper.';
+  } else if ( ps == 'paper' && cs == 'scissor' ) {
+    return 'You lose! Scissor beats Paper.';
+  }
+
+  // if playerSelection is scissor
+  if ( ps == 'scissor' && cs == 'rock' ) {
+    return 'You lose! Rock beats Scissor.';
+  } else if ( ps == 'scissor' && cs == 'paper' ) {
+    return 'You won! Scissor beats Paper.';
+  } else if ( ps == 'scissor' && cs == 'scissor' ) {
+    return 'It\'s a draw! Scissor vs Scissor.';
   }
 }
 
