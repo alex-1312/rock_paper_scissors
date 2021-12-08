@@ -47,16 +47,31 @@ function playRound( playerSelection, computerSelection){
   }
 }
 // play the game 5 times in a row
-function game ( ){  
-  for ( let i = 1; i <= 5; i++ ){
-    // console.log('Loop: ' + i);
-    let ps = prompt('Your Choise. Rock, Paper or Scissor');
-    let cs = computerPlay();
-    console.log('Loop ' + i + ': ' + playRound(ps, cs));
-  }
-} 
+// function game ( ){  
+//   for ( let i = 1; i <= 5; i++ ){
+//     // console.log('Loop: ' + i);
+//     let ps = prompt('Your Choise. Rock, Paper or Scissor');
+//     let cs = computerPlay();
+//     console.log('Loop ' + i + ': ' + playRound(ps, cs));
+//   }
+// } 
 
-game();
+// button eventListener 
+// variables
+const btnRock = document.querySelector('#btn-rock');
+const btnPaper = document.querySelector('#btn-paper');
+const btnScissor = document.querySelector('#btn-scissor');
+// events
+btnRock.addEventListener('click', () => {
+  console.log(playRound('rock', computerPlay()));
+});
+btnPaper.addEventListener('click', () => {
+  console.log(playRound('paper', computerPlay()));
+});
+btnScissor.addEventListener('click', () => {
+  console.log(playRound('Scissor', computerPlay()));
+});
 
 // TESTING STUFF
 // console.log(capitalize('hello'));
+// console.log(playRound('rock',computerPlay()));
