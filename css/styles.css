@@ -1,0 +1,49 @@
+html{
+  font-family: 'Roboto', sans-serif;
+  color: cornsilk;
+  background: rgb(17, 17, 17);
+  font-size: 22px;
+}
+h1,h2,h3,h4,h5,h6{font-family: 'Sigmar One', cursive;color: cornsilk;}
+h1{font-size: 48px;}
+
+/* wrapper */
+.wrapper{
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* flex */
+.flex{display: flex;}
+
+.content div{
+  width: 50%;
+  text-align: center;
+}
+
+#round,
+#combat-text{text-align: center;}
+
+.content p{
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.container{text-align: center;}
+
+.btn{
+  border: 5px solid cornsilk;
+  border-radius: 10px;
+  width: 120px;
+  height: 120px;
+  background: rgb(17, 17, 17);
+  margin: 20px;
+  color: cornsilk;
+  font-size: 24px;
+  font-weight: bold;
+}
+.btn:hover{
+  color: orange;
+  transition: color linear 1s;
+}
